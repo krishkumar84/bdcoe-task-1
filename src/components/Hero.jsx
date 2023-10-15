@@ -1,55 +1,89 @@
 import React, { useState } from 'react';
 
-function ExpenseForm() {
-  const [expenseDesc, setExpenseDesc] = useState("");
-  const [expenseAmount, setExpenseAmount] = useState("");
-  const [expenseDate, setExpenseDate] = useState("");
+function Hero() {
+  const [expenses, setExpenses] = useState([]);
+  const [description, setDescription] = useState("");
+  const [amount, setAmount] = useState("");
+  const [date, setDate] = useState("");
+
+  const addExpense = () => {
+    const newExpense = {
+      id: expenses.length ,
+      description,
+      amount: parseFloat(amount),
+      date,
+    };
+    setExpenses([...expenses, newExpense]);
+
+  };
+
+  const calculateTotal = () => {
+    return expenses.reduce((total, expense) => total + expense.amount, 0);
+  };
+  
 
   return (
-    <div className="min-h-screen bg-lightgray flex flex-col">
-      <div className="bg-white p-4">
-        <h1 className="text-3xl font-bold pl-5 text-black">Expense Tracker App</h1>
+    <div className="min-h-screen bg-gray-100 flex flex-col">
+      <div className=" p-4">
+        <h1 className="text-2xl font-bold text-center  text-black">Expense Tracker</h1>
       </div>
-      <div className="flex-grow flex pl-5">
-        <div className="p-4 sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3">
-          <h2 className="text-lg font-semibold mb-4 text-black">Record a New Expense</h2>
+      <div className="flex-grow flex justify-center items-center">
+        <div className="p-4 sm:w-3/5 md:w-3/5 lg:w-1/2 xl:w-2/5">
+          <h2 className="text-xl font-semibold mb-4 text-blue-500">Add Expense</h2>
           <div className="mb-4">
-            <label htmlFor="expenseDesc" className="block font-semibold text-black">Expense Description:</label>
+            <label htmlFor="description" className="block font-semibold text-black">Description:</label>
             <input
               type="text"
-              id="expenseDesc"
-              value={expenseDesc}
-              onChange={(e) => setExpenseDesc(e.target.value)}
-              className="border rounded w-3/4 p-2"
+              id="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="border rounded w-full p-2"
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="expenseAmount" className="block font-semibold text-black">Expense Amount:</label>
+            <label htmlFor="amount" className="block font-semibold text-black">Amount:</label>
             <input
               type="number"
-              id="expenseAmount"
-              value={expenseAmount}
-              onChange={(e) => setExpenseAmount(e.target.value)}
-              className="border rounded w-3/4 p-2"
+              id="amount"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              className="border rounded w-full p-2"
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="expenseDate" className="block font-semibold text-black">Expense Date:</label>
+            <label htmlFor="date" className="block font-semibold text-black">Date:</label>
             <input
               type="date"
-              id="expenseDate"
-              value={expenseDate}
-              onChange={(e) => setExpenseDate(e.target.value)}
-              className="border rounded w-3/4 p-2"
+              id="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              className="border rounded w-full p-2"
             />
           </div>
-          <button className="bg-indigo-500 p-3 rounded text-white w-1/2 hover:bg-blue-600">
+          <button onClick={addExpense} className="bg-blue-500 p-2 rounded text-white w-full hover-bg-blue-600">
             Add Expense
           </button>
         </div>
+          </div>
+         
+            <div className=' flex flex-col-reverse sm:flex-row xl:flex items-center justify-center'>
+      <div className="p-4 text-center ">
+        <h2 className="text-xl font-semibold mb-4 text-blue-500">Expense List</h2>
+        <ul>
+          {expenses.map((expense) => (
+            <li key={expense.id} className="border p-2 rounded mb-2 text-black">
+              <strong>{expense.description}</strong>  ${expense.amount} on {expense.date}
+            </li>
+          ))}
+        </ul>
       </div>
-    </div>
+      <div className="p-4 text-center">
+        <h2 className="text-xl font-semibold text-blue-500">Total Expenses:</h2>
+        <p className="text-black text-xl">${calculateTotal()}</p>
+      </div>
+      </div>
+      </div>
   );
 }
 
-export default ExpenseForm;
+export default Hero;
