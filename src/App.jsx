@@ -5,7 +5,7 @@ import Hero from "./components/Hero";
 function App() {
   return (
     <>
-      <ExampleNavbarThree />
+      {/* <ExampleNavbarThree /> */}
       <Hero />
     </>
   );

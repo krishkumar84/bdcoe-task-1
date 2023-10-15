@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.color{
+ background: linear-gradient(90deg, rgb(0, 3, 11) 0%, rgb(30, 29, 29) 100%);
+
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#00040F", endColorstr="#454343", GradientType=1 );
+}
+.color-text{
+  color: #00a5be;
+}
+.btn-color{
+    background: #22FFEB;
+}
+.list-color, .heading {
+    color: #22FFEB;
+}
+.heading-big{
+  font-size: 3rem;
+}
+.heading-big2{
+  font-size: 2.5rem;
+}
