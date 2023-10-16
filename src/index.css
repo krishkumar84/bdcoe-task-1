@@ -2,13 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap');
 .color{
  background: linear-gradient(90deg, rgb(0, 3, 11) 0%, rgb(30, 29, 29) 100%);
 
 
 filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#00040F", endColorstr="#454343", GradientType=1 );
 }
+/* Hide the scrollbar */
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent; /* You can set the background color to match your theme */
+}
+
+/* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: #000; /* Background color for the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+}
+
+/* Style the scrollbar track */
+::-webkit-scrollbar-track {
+  background: transparent; /* Background color for the scrollbar track */
+}
+
 .color-text{
   color: #00a5be;
 }
@@ -23,4 +40,19 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#00040F", en
 }
 .heading-big2{
   font-size: 2.5rem;
+}
+.heading-big-3{
+  color: white;
+  font-size: 3rem;
+  font-family: 'Poppins', sans-serif;
+}
+.expenses{
+  color: #00a5be;
+}
+.border-clr{
+  color: #00a5be;
+  
+}
+.font-custom{
+  font-family: 'Poppins', sans-serif;
 }
